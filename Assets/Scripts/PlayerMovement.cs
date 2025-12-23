@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private UnityEngine.Vector2 movement;
     private bool isGrounded;
 
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
         CheckIfGrounded();
 
         // 4. Прыжок
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if ((Input.GetKeyDown(KeyCode.Space) && isGrounded) || (Input.GetKeyDown(KeyCode.UpArrow) && isGrounded) || (Input.GetKeyDown(KeyCode.W) && isGrounded))
         {
             rb.linearVelocity = new UnityEngine.Vector2(rb.linearVelocity.x, jumpForce);
         }
